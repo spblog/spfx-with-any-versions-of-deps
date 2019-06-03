@@ -6,7 +6,8 @@ const Visualizer = require('webpack-visualizer-plugin');
 module.exports = merge({
     target: "web",
     entry: {
-        'hello-world-webpart-bundle': path.join(__dirname, '../src/webparts/helloWorld/HelloWorldWebPart.ts')
+        'hello-world-webpart-bundle': path.join(__dirname, '../src/webparts/helloWorld/HelloWorldWebPart.ts'),
+        'my-new-webpart-bundle': path.join(__dirname, '../src/webparts/myNewWebPart/MyNewWebPartWebPart.ts')
     },
     output: {
         path: path.join(__dirname, '../dist'),
@@ -19,7 +20,8 @@ module.exports = merge({
     },
     externals: [
         /^@microsoft\//,
-        'HelloWorldWebPartStrings'],
+        'HelloWorldWebPartStrings',
+        'MyNewWebPartWebPartStrings'],
     module: {
         rules: [
             {

@@ -1,6 +1,6 @@
 {
   "@microsoft/generator-sharepoint": {
-    "isCreatingSolution": true,
+    "isCreatingSolution": false,
     "environment": "onprem19",
     "version": "1.8.2",
     "libraryName": "spfx-with-any-versions",

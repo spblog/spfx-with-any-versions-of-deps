@@ -1,4 +1,3 @@
-// TODO - how to add new web part
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -16,7 +15,7 @@ export interface IHelloWorldWebPartProps {
     description: string;
 }
 
-export class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
 
     public render(): void {
         const element: React.ReactElement<IHelloWorldProps> = React.createElement(
