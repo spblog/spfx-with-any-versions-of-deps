@@ -10,7 +10,12 @@
         "rootDir": "src",
         "noEmitOnError": true,
         "jsx": "react",
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "lib": [
+            "es5",
+            "dom",
+            "es2015.collection"
+        ]
     },
     "typeRoots": [
         "./node_modules/@types",
@@ -19,10 +24,5 @@
     "include": [
         "src/**/*.ts",
         "src/**/*.tsx"
-    ],
-    "lib": [
-        "es5",
-        "dom",
-        "es2015.collection"
     ]
 }
