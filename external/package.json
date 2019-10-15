@@ -17,6 +17,7 @@
     "@microsoft/sp-lodash-subset": "1.4.1",
     "@microsoft/sp-office-ui-fabric-core": "^1.8.2",
     "@microsoft/sp-webpart-base": "1.4.1",
+    "@pnp/spfx-controls-react": "1.15.0",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@uifabric/styling": "^7.0.3",

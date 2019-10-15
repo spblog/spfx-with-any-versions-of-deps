@@ -21,7 +21,8 @@ module.exports = merge({
     externals: [
         /^@microsoft\//,
         'HelloWorldWebPartStrings',
-        'MyNewWebPartWebPartStrings'],
+        'MyNewWebPartWebPartStrings',
+        'ControlStrings'],
     module: {
         rules: [
             {
@@ -31,6 +32,24 @@ module.exports = merge({
                     transpileOnly: true
                 },
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "@microsoft/loader-load-themed-styles", // hack, loads ouif themable styles
+                        options: {
+                            async: true
+                        }
+                    },
+                    'css-modules-typescript-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,
