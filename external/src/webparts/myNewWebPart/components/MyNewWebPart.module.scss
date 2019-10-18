@@ -1,5 +1,9 @@
 @import '@microsoft/sp-office-ui-fabric-core/dist/sass/_SPFabricCore.scss';
 
+span i[class^=toolbarSubmenuCaret] {
+  font-family: "FabricMDL2Icons";
+}
+
 .myNewWebPart {
   .container {
     max-width: 700px;

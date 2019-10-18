@@ -1,26 +1,35 @@
 import * as React from 'react';
 import * as styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
-import { escape } from '@microsoft/sp-lodash-subset';
 import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
+import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import * as strings from 'HelloWorldWebPartStrings';
 
 export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
   public render(): React.ReactElement<IHelloWorldProps> {
+    const columnProps: Partial<IStackProps> = {
+      tokens: { childrenGap: 15 },
+      styles: { root: { width: 300 } }
+    };
     return (
-      <div className={styles.helloWorld}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div className={styles.column}>
-              <span className={styles.title}>Welcome to SharePoint!!!!</span>
-              <p className={styles.subTitle}>Customize SharePoint experiences using Web Parts.</p>
-              <p className={styles.description}>{escape(this.props.description)}</p>
-              <a href='https://aka.ms/spfx' className={styles.button}>
-                <span className={styles.label}>Learn more</span><br />
-                <PrimaryButton>{strings.AnotherProp}</PrimaryButton>
-              </a>
-            </div>
-          </div>
+      <div>
+        <div>
+          <span className={styles.title}>Welcome to SharePoint!</span>
+          <br />
+          <PrimaryButton>{strings.AnotherProp}</PrimaryButton>
+        </div>
+        <div>
+          <Stack horizontal tokens={{ childrenGap: 50 }} styles={{ root: { width: 650 } }}>
+            <Stack {...columnProps}>
+              <TextField label='Standard' />
+              <TextField label='Disabled' disabled defaultValue='I am disabled' />
+              <TextField label='Read-only' readOnly defaultValue='I am read-only' />
+              <TextField label='Required ' required />
+              <TextField required />
+              <TextField label='With error message' errorMessage='Error message' />
+            </Stack>
+          </Stack>
         </div>
       </div>
     );

@@ -5,20 +5,29 @@ import { escape } from '@microsoft/sp-lodash-subset';
 
 // example of usage spfx-controls-react
 import { ListView, SelectionMode } from '@pnp/spfx-controls-react/lib/ListView';
+import { RichText } from '@pnp/spfx-controls-react/lib/RichText';
 
 export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, {}> {
+
   public render(): React.ReactElement<IMyNewWebPartProps> {
     return (
-      <div className={styles.myNewWebPart} >
+      <div>
+        <div>
+          <RichText value={'Initial text'} />
+        </div>
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.column}>
               <span className={styles.title}>Welcome to SharePoint!</span>
-              <p className={styles.subTitle}>Customize SharePoint experiences using Web Parts.</p>
-              <p className={styles.description}>{escape(this.props.description)}</p>
               <ListView
                 items={[{
                   Id: 1, Title: 'Testing'
+                },
+                {
+                  Id: 2, Title: 'Some value'
+                },
+                {
+                  Id: 3, Title: 'Title goes here'
                 }]}
                 viewFields={[{
                   name: 'Id'
@@ -26,7 +35,7 @@ export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, {}
                 iconFieldName='ServerRelativeUrl'
                 compact={true}
                 selectionMode={SelectionMode.multiple}
-                showFilter={true}/>
+                showFilter={true} />
             </div>
           </div>
         </div>

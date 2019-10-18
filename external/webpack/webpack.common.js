@@ -42,12 +42,8 @@ module.exports = merge({
                             async: true
                         }
                     },
-                    'css-modules-typescript-loader',
                     {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
+                        loader: 'css-loader'
                     }
                 ]
             },
