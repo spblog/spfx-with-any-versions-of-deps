@@ -11,6 +11,22 @@ import * as strings from 'MyNewWebPartWebPartStrings';
 import MyNewWebPart from './components/MyNewWebPart';
 import { IMyNewWebPartProps } from './components/IMyNewWebPartProps';
 
+/**
+ * Fix to make it work with OUIFR 7.x
+ */
+
+import { GlobalSettings } from '@uifabric/utilities/lib/GlobalSettings';
+import { getTheme } from '@uifabric/styling/lib/styles/theme';
+
+const customizations = GlobalSettings.getValue('customizations');
+const theme = getTheme();
+(customizations as any).settings.theme.effects = { ...theme.effects };
+(customizations as any).settings.theme.spacing = { ...theme.spacing };
+
+/**
+ * End of fix
+ */
+
 export interface IMyNewWebPartWebPartProps {
   description: string;
 }
