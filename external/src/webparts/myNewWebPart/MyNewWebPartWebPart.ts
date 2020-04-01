@@ -22,6 +22,7 @@ const customizations = GlobalSettings.getValue('customizations');
 const theme = getTheme();
 (customizations as any).settings.theme.effects = { ...theme.effects };
 (customizations as any).settings.theme.spacing = { ...theme.spacing };
+(customizations as any).settings.theme.fonts = { ...theme.fonts };
 
 /**
  * End of fix
