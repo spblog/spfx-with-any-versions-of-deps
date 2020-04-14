@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as styles from './MyNewWebPart.module.scss';
-import * as modalStyles from './Modal.module.scss';
+import styles from './MyNewWebPart.module.scss';
+import modalStyles from './Modal.module.scss';
 import { IMyNewWebPartProps } from './IMyNewWebPartProps';
 
 // example of usage spfx-controls-react

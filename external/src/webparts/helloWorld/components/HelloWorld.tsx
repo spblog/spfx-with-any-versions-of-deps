@@ -1,10 +1,11 @@
 import * as React from 'react';
-import * as styles from './HelloWorld.module.scss';
+import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import * as strings from 'HelloWorldWebPartStrings';
+const logo: any = require('./../../../assets/google.gif');
 
 export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
   public render(): React.ReactElement<IHelloWorldProps> {
@@ -14,6 +15,9 @@ export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
     };
     return (
       <div>
+        <div>
+          <img src={logo} />
+        </div>
         <div>
           <span className={styles.title}>Welcome to SharePoint!</span>
           <br />

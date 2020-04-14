@@ -1,19 +1,21 @@
-const {src, dest, watch} = require('gulp');
+const { src, dest, watch } = require('gulp');
+
+const targetSpfxFolder = "spfx";
 
 function copyLocalizedResources() {
-    return src('../spfx/src/webparts/**/loc/*.d.ts')
-    .pipe(dest('./src/webparts'));
+    return src(`../${targetSpfxFolder}/src/webparts/**/loc/*.d.ts`)
+        .pipe(dest('./src/webparts'));
 }
 
 function triggerTargetWebPartReload() {
-    return src('../spfx/src/index.ts')
-    .pipe(dest('../spfx/src/'))
+    return src(`../${targetSpfxFolder}/src/index.ts`)
+        .pipe(dest(`../${targetSpfxFolder}/src/`))
 }
 
 exports['copy-loc'] = copyLocalizedResources;
 
-exports.watch = function() {
-    watch('../spfx/src/webparts/**/loc/*.d.ts', {
+exports.watch = function () {
+    watch(`../${targetSpfxFolder}/src/webparts/**/loc/*.d.ts`, {
         ignoreInitial: false
     }, copyLocalizedResources);
 

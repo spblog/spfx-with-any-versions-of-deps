@@ -1,13 +1,13 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const Visualizer = require('webpack-visualizer-plugin');
+const SetPublicPathPlugin = require("@rushstack/set-webpack-public-path-plugin").SetPublicPathPlugin;
 
 module.exports = merge({
     target: "web",
     entry: {
-        'hello-world-webpart-bundle': path.join(__dirname, '../src/webparts/helloWorld/HelloWorldWebPart.ts'),
-        'my-new-webpart-bundle': path.join(__dirname, '../src/webparts/myNewWebPart/MyNewWebPartWebPart.ts')
+        'hello-world-web-part': path.join(__dirname, '../src/webparts/helloWorld/HelloWorldWebPart.ts'),
+        'my-new-web-part-web-part': path.join(__dirname, '../src/webparts/myNewWebPart/MyNewWebPartWebPart.ts')
     },
     output: {
         path: path.join(__dirname, '../dist'),
@@ -17,6 +17,13 @@ module.exports = merge({
     },
     performance: {
         hints: false
+    },
+    stats: {
+        errors: true,
+        colors: true,
+        chunks: false,
+        modules: false,
+        assets: false
     },
     externals: [
         /^@microsoft\//,
@@ -34,10 +41,19 @@ module.exports = merge({
                 exclude: /node_modules/
             },
             {
+                test: /\.(jpg|png|woff|eot|ttf|svg|gif|dds)$/,
+                use: [{
+                    loader: "@microsoft/loader-cased-file",
+                    options: {
+                        name: "[name:lower]_[hash].[ext]"
+                    }
+                }]
+            },
+            {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: "@microsoft/loader-load-themed-styles", // hack, loads ouif themable styles
+                        loader: "@microsoft/loader-load-themed-styles",
                         options: {
                             async: true
                         }
@@ -48,10 +64,12 @@ module.exports = merge({
                 ]
             },
             {
-                test: /\.scss$/,
+                test: function (fileName) {
+                    return fileName.endsWith(".module.scss");   // scss modules support
+                },
                 use: [
                     {
-                        loader: "@microsoft/loader-load-themed-styles", // hack, loads ouif themable styles
+                        loader: "@microsoft/loader-load-themed-styles",
                         options: {
                             async: true
                         }
@@ -65,6 +83,21 @@ module.exports = merge({
                     }, // translates CSS into CommonJS
                     "sass-loader" // compiles Sass to CSS, using Node Sass by default
                 ]
+            },
+            {
+                test: function (fileName) {
+                    return !fileName.endsWith(".module.scss") && fileName.endsWith(".scss");  // just regular .scss
+                },
+                use: [
+                    {
+                        loader: "@microsoft/loader-load-themed-styles",
+                        options: {
+                            async: true
+                        }
+                    },
+                    "css-loader", // translates CSS into CommonJS
+                    "sass-loader" // compiles Sass to CSS, using Node Sass by default
+                ]
             }
         ]
     },
@@ -74,5 +107,10 @@ module.exports = merge({
     plugins: [new ForkTsCheckerWebpackPlugin({
         tslint: true
     }),
-    new Visualizer()]
+    new SetPublicPathPlugin({
+        scriptName: {
+            name: '[name]_?[a-zA-Z0-9-_]*\.js',
+            isTokenized: true
+        }
+    })]
 });
