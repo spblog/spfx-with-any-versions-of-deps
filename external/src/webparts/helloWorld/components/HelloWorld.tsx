@@ -6,9 +6,17 @@ import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import * as strings from 'HelloWorldWebPartStrings';
 const logo: any = require('./../../../assets/google.gif');
+import * as yup from 'yup';
 
 export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
   public render(): React.ReactElement<IHelloWorldProps> {
+
+    const schema = yup.object().shape({
+      firstName: yup.string().required()
+    });
+
+    console.log(schema);
+
     const columnProps: Partial<IStackProps> = {
       tokens: { childrenGap: 15 },
       styles: { root: { width: 300 } }
