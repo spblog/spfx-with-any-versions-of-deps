@@ -1,9 +1,13 @@
 import * as React from 'react';
 import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
-import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
-import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
+import {
+  DefaultButton,
+  TextField,
+  MaskedTextField,
+  Stack,
+  IStackProps
+} from '@fluentui/react';
 import * as strings from 'HelloWorldWebPartStrings';
 const logo: any = require('./../../../assets/google.gif');
 

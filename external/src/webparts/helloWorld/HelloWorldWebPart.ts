@@ -15,8 +15,8 @@ import { IHelloWorldProps } from './components/IHelloWorldProps';
  * Fix to make it work with OUIFR 7.x
  */
 
-import { GlobalSettings } from '@uifabric/utilities/lib/GlobalSettings';
-import { getTheme } from '@uifabric/styling/lib/styles/theme';
+import { GlobalSettings } from '@fluentui/utilities';
+import { getTheme } from '@fluentui/react';
 
 const customizations = GlobalSettings.getValue('customizations');
 const theme = getTheme();

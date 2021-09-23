@@ -7,10 +7,13 @@ import { IMyNewWebPartProps } from './IMyNewWebPartProps';
 import { ListView, SelectionMode } from '@pnp/spfx-controls-react/lib/ListView';
 import { RichText } from '@pnp/spfx-controls-react/lib/RichText';
 
-import { Modal, IDragOptions } from 'office-ui-fabric-react/lib/Modal';
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
-import { getId } from 'office-ui-fabric-react/lib/Utilities';
-import { ContextualMenu } from 'office-ui-fabric-react/lib/ContextualMenu';
+import {
+  Modal,
+  IDragOptions,
+  DefaultButton,
+  ContextualMenu,
+  getId
+} from '@fluentui/react';
 
 export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, {}> {
 
