@@ -37,6 +37,7 @@
     "@types/mocha": "2.2.38",
     "ajv": "~5.2.2",
     "gulp": "~3.9.1",
+    "source-map-loader": "0.2.4",
     "spfx-fast-serve-helpers": "~1.4.0"
   }
 }
