@@ -9,7 +9,8 @@
     "build": "gulp bundle",
     "clean": "gulp clean",
     "test": "gulp test",
-    "pack": "gulp bundle --ship && gulp package-solution --ship"
+    "pack": "gulp bundle --ship && gulp package-solution --ship",
+    "serve": "gulp bundle --custom-serve --max_old_space_size=4096 && fast-serve"
   },
   "dependencies": {
     "@microsoft/sp-core-library": "~1.4.0",
@@ -35,6 +36,7 @@
     "@types/chai": "3.4.34",
     "@types/mocha": "2.2.38",
     "ajv": "~5.2.2",
-    "gulp": "~3.9.1"
+    "gulp": "~3.9.1",
+    "spfx-fast-serve-helpers": "~1.4.0"
   }
 }

@@ -19,4 +19,10 @@ const copyStaticFilesSubtask = build.subTask('copy-static-files', function (gulp
 
 build.rig.addPostBuildTask(copyStaticFilesSubtask);
 
-build.initialize(gulp);
+/* fast-serve */
+const { addFastServe } = require("spfx-fast-serve-helpers");
+addFastServe(build);
+/* end of fast-serve */
+
+build.initialize(require('gulp'));
+
