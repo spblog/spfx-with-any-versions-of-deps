@@ -12,7 +12,7 @@ import MyNewWebPart from './components/MyNewWebPart';
 import { IMyNewWebPartProps } from './components/IMyNewWebPartProps';
 
 /**
- * Fix to make it work with OUIFR 7.x
+ * Fix to make it work with OUIFR 8.x
  */
 
  import { GlobalSettings } from '@fluentui/utilities';
@@ -50,6 +50,7 @@ export default class MyNewWebPartWebPart extends BaseClientSideWebPart<IMyNewWeb
     ReactDom.unmountComponentAtNode(this.domElement);
   }
 
+  // @ts-ignore
   protected get dataVersion(): Version {
     return Version.parse('1.0');
   }
