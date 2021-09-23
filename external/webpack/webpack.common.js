@@ -1,7 +1,6 @@
 const path = require('path');
 const merge = require('webpack-merge');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const SetPublicPathPlugin = require("@rushstack/set-webpack-public-path-plugin").SetPublicPathPlugin;
 
 module.exports = merge({
     target: "web",
@@ -106,11 +105,5 @@ module.exports = merge({
     },
     plugins: [new ForkTsCheckerWebpackPlugin({
         tslint: true
-    }),
-    new SetPublicPathPlugin({
-        scriptName: {
-            name: '[name]_?[a-zA-Z0-9-_]*\.js',
-            isTokenized: true
-        }
     })]
 });
