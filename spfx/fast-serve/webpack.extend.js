@@ -7,7 +7,15 @@
 // you can add your project related webpack configuration here, it will be merged using webpack-merge module
 // i.e. plugins: [new webpack.Plugin()]
 const webpackConfig = {
-
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: require.resolve('source-map-loader')
+      }
+    ]
+  }
 }
 
 // for even more fine-grained control, you can apply custom webpack settings using below function
