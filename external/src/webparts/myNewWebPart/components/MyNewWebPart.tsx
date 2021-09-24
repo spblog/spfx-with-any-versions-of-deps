@@ -9,11 +9,20 @@ import { RichText } from '@pnp/spfx-controls-react/lib/RichText';
 
 import {
   Modal,
-  IDragOptions,
-  DefaultButton,
-  ContextualMenu,
+  IDragOptions
+} from '@fluentui/react/lib/Modal';
+
+import {
   getId
-} from '@fluentui/react';
+} from '@fluentui/react/lib/Utilities';
+
+import {
+  DefaultButton
+} from '@fluentui/react/lib/Button';
+
+import {
+  ContextualMenu
+} from '@fluentui/react/lib/ContextualMenu';
 
 export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, {}> {
 

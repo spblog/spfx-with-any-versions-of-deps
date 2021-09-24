@@ -16,7 +16,7 @@ import { IMyNewWebPartProps } from './components/IMyNewWebPartProps';
  */
 
  import { GlobalSettings } from '@fluentui/utilities';
- import { getTheme } from '@fluentui/react';
+ import { getTheme } from '@fluentui/react/lib/Styling';
 
 const customizations = GlobalSettings.getValue('customizations');
 const theme = getTheme();

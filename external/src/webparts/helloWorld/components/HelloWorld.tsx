@@ -2,12 +2,17 @@ import * as React from 'react';
 import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
 import {
-  DefaultButton,
-  TextField,
-  MaskedTextField,
+  DefaultButton
+} from '@fluentui/react/lib/Button';
+
+import {
+  TextField
+} from '@fluentui/react/lib/TextField';
+
+import {
   Stack,
   IStackProps
-} from '@fluentui/react';
+} from '@fluentui/react/lib/Stack';
 import * as strings from 'HelloWorldWebPartStrings';
 const logo: any = require('./../../../assets/google.gif');
 
