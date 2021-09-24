@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require("webpack");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = merge(common, {
   output: {
@@ -11,6 +12,10 @@ module.exports = merge(common, {
   mode: "development",
   devtool: "source-map",
   plugins: [
+    new ESLintPlugin({
+      files: './src/**/*.{ts,tsx}',
+      lintDirtyModulesOnly: true
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'DEBUG': JSON.stringify(true)

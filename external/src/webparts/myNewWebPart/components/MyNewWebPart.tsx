@@ -24,9 +24,9 @@ import {
   ContextualMenu
 } from '@fluentui/react/lib/ContextualMenu';
 
-export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, {}> {
+export default class MyNewWebPart extends React.Component<IMyNewWebPartProps, unknown> {
 
-  public state: any = {
+  public state = {
     showModal: false,
     isDraggable: false
   };

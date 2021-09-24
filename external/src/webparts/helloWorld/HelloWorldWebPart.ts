@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
@@ -50,6 +51,7 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
         ReactDom.unmountComponentAtNode(this.domElement);
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     protected get dataVersion(): Version {
         return Version.parse('1.0');
