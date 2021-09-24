@@ -2,12 +2,14 @@ import * as React from 'react';
 import styles from './HelloWorld.module.scss';
 import { IHelloWorldProps } from './IHelloWorldProps';
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button';
-import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 import { Stack, IStackProps } from 'office-ui-fabric-react/lib/Stack';
 import * as strings from 'HelloWorldWebPartStrings';
-const logo: any = require('./../../../assets/google.gif');
 
-export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const logo: string = require('./../../../assets/google.gif');
+
+export default class HelloWorld extends React.Component<IHelloWorldProps, unknown> {
   public render(): React.ReactElement<IHelloWorldProps> {
     const columnProps: Partial<IStackProps> = {
       tokens: { childrenGap: 15 },
